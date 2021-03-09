@@ -1,26 +1,31 @@
 feature 'Sign up user', js: true do
-  user_name = 'test' << Time.now.to_i.to_s
-  password = user_name.reverse
-  credentials = { :user_name => user_name, :password => password }
-  File.open('spec/test_data/creds.yml', 'w') { |file| file.write(credentials.to_yaml) }
+  test_data_path = 'spec/test_data/'
+  Dir.mkdir(test_data_path) unless Dir.exist?(test_data_path)
+  user_name = SecureRandom.alphanumeric
+  password = SecureRandom.hex
+  credentials = { user_name: user_name, password: password }
+  File.open("#{test_data_path}creds.yml", 'w') { |file| file.write(credentials.to_yaml) }
 
   scenario 'User can register' do
-    visit('http://testautomate.me/redmine/')
-    expect(page).to have_content 'Redmine@testautomate.me'
+    @home_page = HomePage.new
 
-    find('.register').click
+    @home_page.load
+    @home_page.menu.sign_up_link.click
+    expect(@home_page.header.text).to include 'Redmine@testautomate.me'
 
-    find('#user_login').set user_name
-    find('#user_password').set password
-    find('#user_password_confirmation').set password
-    find('#user_firstname').set 'Test'
-    find('#user_lastname').set 'User'
-    find('#user_mail').set "#{user_name}@test.org"
+    @sign_up_page = SignUpPage.new
+    @sign_up_page.loaded?
 
-    select 'English', from: 'Language'
+    @sign_up_page.login.set user_name
+    @sign_up_page.password.set password
+    @sign_up_page.password_confirm.set password
+    @sign_up_page.first_name.set 'Test'
+    @sign_up_page.last_name.set 'User'
+    @sign_up_page.email.set "#{user_name}@test.org"
+    @sign_up_page.user_language.select('English')
 
-    find('input[name="commit"]').click
+    @sign_up_page.submit_btn.click
 
-    expect(page).to have_content 'Logged in as test'
+    expect(@sign_up_page.menu.logged_as.text).to include "Logged in as #{user_name}"
   end
 end
