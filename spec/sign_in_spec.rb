@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
 feature 'Sign in user', js: true do
-  credentials = YAML.load(File.read('spec/test_data/creds.yml'))
+  target_path = File.read('spec/test_data/creds.yml')
+  credentials = YAML.safe_load(target_path, [Symbol])
   user_name = credentials.fetch(:user_name)
   password = credentials.fetch(:password)
 
