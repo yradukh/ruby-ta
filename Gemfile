@@ -2,6 +2,7 @@ source 'http://rubygems.org'
 
 gem 'capybara'
 gem 'ffi'
+gem 'reek'
 gem 'require_all'
 gem 'rspec'
 gem 'rubocop'
