@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 feature 'Sign up user', js: true do
   test_data_path = 'spec/test_data/'
   Dir.mkdir(test_data_path) unless Dir.exist?(test_data_path)
