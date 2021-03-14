@@ -1,7 +1,7 @@
 detectors:
-#  UtilityFunction:
-#    exclude:
-#      - 'options'
+  UtilityFunction:
+    exclude:
+      - 'options'
   IrresponsibleModule:
     exclude:
       - 'HomePage'
