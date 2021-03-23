@@ -6,12 +6,16 @@ require 'selenium-webdriver'
 require 'site_prism'
 require 'yaml'
 
+require_all 'models'
 require_all 'page_objects/sections'
 require_all 'page_objects/pages'
+require_all 'spec/support'
+
+include FeatureHelper
 
 RSpec.configure do
   def options
-    Selenium::WebDriver::Chrome::Options.new(args: %w[window-size=1800,1000])
+    Selenium::WebDriver::Chrome::Options.new(args: %w[window-size=1200,1000])
   end
 
   Capybara.default_driver = :selenium

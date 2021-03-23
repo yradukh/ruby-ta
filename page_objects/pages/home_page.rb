@@ -5,4 +5,6 @@ class HomePage < SitePrism::Page
 
   section :header, HeaderSection, '#header'
   section :menu, MenuSection, '#top-menu'
+
+  element :page_title, '#content > h2'
 end
