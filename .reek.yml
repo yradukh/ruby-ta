@@ -2,6 +2,7 @@ detectors:
   UtilityFunction:
     exclude:
       - 'options'
+      - 'parse_config_file'
   IrresponsibleModule:
     exclude:
       - 'HomePage'
@@ -9,3 +10,11 @@ detectors:
       - 'SignUpPage'
       - 'HeaderSection'
       - 'MenuSection'
+  DuplicateMethodCall:
+    exclude:
+      - 'sign_in_user'
+      - 'sign_up_user'
+  TooManyStatements:
+    max_statements: 20
+  TooManyInstanceVariables:
+    max_instance_variables: 10

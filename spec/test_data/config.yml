@@ -1,0 +1,3 @@
+---
+:test_data_path: 'spec/test_data/'
+:creds_path: 'spec/test_data/creds.yml'
