@@ -14,7 +14,7 @@ require_all 'page_objects/pages'
 require_all 'spec/test_data'
 
 def options
-  Selenium::WebDriver::Chrome::Options.new(args: %w[window-size=1200,1000])
+  Selenium::WebDriver::Chrome::Options.new(args: %w[window-size=1200,1000 --headless --no-sandbox --disable-setuid-sandbox])
 end
 
 Capybara.default_driver = :selenium
