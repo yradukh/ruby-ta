@@ -2,7 +2,7 @@
 
 feature 'Sign in user', js: true do
   scenario 'User can log in' do
-    sign_in_user
+    sign_in_user_rs
 
     expect(@sign_in_page.menu.my_account_link.visible?).to eql true
   end

@@ -2,7 +2,7 @@
 
 # This page describes elements on user page
 class UserPage < SitePrism::Page
-  set_url 'http://testautomate.me/redmine/my/page'
+  set_url 'https://testautomate.me/redmine/my/page'
 
   section :header, HeaderSection, '#header'
   section :menu, MenuSection, '#top-menu'

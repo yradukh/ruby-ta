@@ -2,7 +2,7 @@
 
 feature 'Check user page', js: true do
   scenario 'User has no assigned and reported issues' do
-    sign_in_user
+    sign_in_user_rs
     @sign_in_page.menu.my_page_link.click
 
     @user_page = UserPage.new

@@ -8,7 +8,7 @@ feature 'Sign up user', js: true do
     expect(@home_page.page_title.text).to eql 'Home'
     @home_page.menu.sign_up_link.click
 
-    sign_up_user
+    sign_up_user_rs
     expect(@sign_up_page.menu.logged_as.text).to include "Logged in as #{@user.user_name}"
   end
 end

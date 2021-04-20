@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class SignUpPage < SitePrism::Page
-  set_url 'http://testautomate.me/redmine/account/register'
+  set_url 'https://testautomate.me/redmine/account/register'
 
   section :header, HeaderSection, '#header'
   section :menu, MenuSection, '#top-menu'
@@ -14,4 +14,5 @@ class SignUpPage < SitePrism::Page
   element :email, '#user_mail'
   element :user_language, '#user_language'
   element :submit_btn, 'input[name="commit"]'
+  element :flash_notice, '#flash_notice'
 end

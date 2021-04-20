@@ -3,6 +3,8 @@ detectors:
     exclude:
       - 'options'
       - 'parse_config_file'
+      - 'api_headers'
+      - 'parse_user_data'
   IrresponsibleModule:
     exclude:
       - 'HomePage'
@@ -14,7 +16,19 @@ detectors:
     exclude:
       - 'sign_in_user'
       - 'sign_up_user'
+      - 'put_creds_to_file'
+      - 'put_creds_to_file_rs'
+      - 'api_create_user'
   TooManyStatements:
     max_statements: 20
   TooManyInstanceVariables:
     max_instance_variables: 10
+  LongParameterList:
+    max_params: 6
+  FeatureEnvy:
+    exclude:
+      - 'ApiWrapper#api_create_user'
+      - 'ApiWrapperRS#api_create_user_rs'
+  UncommunicativeVariableName:
+    accept:
+      - i
