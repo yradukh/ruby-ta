@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class SignInPage < SitePrism::Page
-  set_url 'http://testautomate.me/redmine/login'
+  set_url 'https://testautomate.me/redmine/login'
 
   section :header, HeaderSection, '#header'
   section :menu, MenuSection, '#top-menu'
